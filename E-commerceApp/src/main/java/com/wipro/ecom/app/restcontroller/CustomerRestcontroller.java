@@ -25,12 +25,12 @@ public class CustomerRestcontroller {
 	@Autowired
 	private ICustomerService service;
 
-	@PostMapping(value = "/add", consumes = "application/json")
+	@PostMapping(value = "/add", consumes = "application/json", produces = "application/json")
 	public Customers add(@RequestBody @Valid CustomersDto c) {
 		return service.addCustomer(c);
 	}
 
-	@PutMapping(value = "/update", consumes = "application/json")
+	@PutMapping(value = "/update", consumes = "application/json", produces = "application/json")
 	public Customers update(@RequestBody @Valid CustomersDto c) {
 		return service.updateCustomer(c);
 	}

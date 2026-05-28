@@ -21,4 +21,6 @@ public interface IOrderService {
 
 	List<Orders> getByTotalAmountLessThan(double amount);
 
+	List<Orders> getOrdersByCustomerId(int cid);
+
 }

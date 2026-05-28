@@ -25,12 +25,12 @@ public class OrderRestcontroller {
 	@Autowired
 	private IOrderService service;
 
-	@PostMapping("/add")
+	@PostMapping(value = "/add", consumes = "application/json", produces = "application/json")
 	public Orders add(@RequestBody @Valid OrdersDto order) {
 		return service.saveOrder(order);
 	}
 
-	@PutMapping("/update")
+	@PutMapping(value = "/update", consumes = "application/json", produces = "application/json")
 	public Orders update(@RequestBody @Valid OrdersDto order) {
 		return service.updateOrder(order);
 	}
@@ -67,4 +67,10 @@ public class OrderRestcontroller {
 	public List<Orders> getByAmountLt(@PathVariable double amt) {
 		return service.getByTotalAmountLessThan(amt);
 	}
+
+	@GetMapping("/customer/{cid}")
+	public List<Orders> getByCustomerId(@PathVariable int cid) {
+		return service.getOrdersByCustomerId(cid);
+	}
+
 }
